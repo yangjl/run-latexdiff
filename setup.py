@@ -11,5 +11,5 @@ setup(
     license="GPL v3",
     packages=["run_latexdiff"], 
     scripts=["bin/run-latexdiff"],
-    long_description=open('README').read(),
+    long_description=open('README.md').read(),
 )

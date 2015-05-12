@@ -77,7 +77,7 @@ def compileDiffPdf(log_file = None, diff_tex="diff.tex", diff_aux ="diff.aux"):
     log_file = open(log_file, "w")
 
   pdflatex(diff_tex, log_file)
-  #bibtex(diff_aux, log_file)
+  bibtex(diff_aux, log_file)
   pdflatex(diff_tex, log_file)
   pdflatex(diff_tex, log_file)
   if not log_file is None:

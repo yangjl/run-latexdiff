@@ -20,6 +20,16 @@ def myversion(v='0'):
     ##########################################################################################
     run-latexdiff version %s
     Modified by Jinliang Yang <jolyang@ucdavis.edu>
+
+    USAGE:
+    =============
+    run-latexdiff -o OLD:FILE -n NEW:FILE --diff
+
+    where:
+    OLD:    old revision id, local for non-commited
+    NEW:    new revision id, local for non-commited
+    FILE:   filename of the file you want to diff
+    diff:   output of the diff.tex
     --------------------------------
 
     # Copyright @ 2012, Paul Hiemstra <paul@numbertheory.nl>,
