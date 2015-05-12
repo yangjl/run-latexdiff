@@ -1,7 +1,7 @@
 
-#scm-latexdiff
+#run-latexdiff
 
-A command line tool to create diff pdf's from git repos. 
+A command line tool to create `latexdiff` pdf's for different git commits. Modified from [scm-latexdiff](https://bitbucket.org/paulhiemstra/scm-latexdiff/overview). All credits go to **scm-latexdiff**.
 
 ## INSTALL
 This tool uses **distutils** for installation. The following command installs the tool on your machine:
@@ -23,6 +23,7 @@ Do remember to add **/home/spam/lib/python2.x/site-packages/** to your
 run-latexdiff --help (or -h)
 ### running example
 run-latexdiff --old OLD:FILE --new NEW:FILE --diff diff.tex
+run-latexdiff -o f126:ms/old.tex -n jafo12:ms/new.tex -d ms/diff.tex
 ```  
 ### where:
 - OLD:    old revision id, **local** for non-commited
@@ -40,8 +41,7 @@ run-latexdiff --old OLD:FILE --new NEW:FILE --diff diff.tex
 
 -------------------
 
-### License
-=======
+## License
 
 Copyright © 2012, Paul Hiemstra <paul@numbertheory.nl>, 
 Ronald van Haren <ronald@archlinux.org>.
