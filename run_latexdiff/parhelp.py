@@ -82,7 +82,7 @@ def showHelp(argv):
     old_fileloc = argv[1]
   except IndexError:
     printHelp()
-  if old_fileloc in ["-h","h","--help","help","--h"]:
+  if old_fileloc in ["-h","h","--help","help","--h", ""]:
     printHelp()
   if old_fileloc in ["-v","v","--version","-version","version","--v"]:
     import pkg_resources
