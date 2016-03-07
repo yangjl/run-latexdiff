@@ -31,7 +31,7 @@ def main():
   #git = gitOrHg() #do not need to run this
   #git = True
   
-  if args is not None:
+  if args['old'] is not None:
     old_fileloc, new_fileloc = processCmdlineArgs(old=args['old'], new=args['new'], git = True)
 
     old_texfile, new_texfile = dumpRepositoryVersion2tmp(old_fileloc, new_fileloc, git = True)
