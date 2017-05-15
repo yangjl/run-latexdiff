@@ -1,5 +1,5 @@
 
-#run-latexdiff
+# run-latexdiff
 
 A command line tool to create `latexdiff` pdf's for different git commits. Modified from [scm-latexdiff](https://bitbucket.org/paulhiemstra/scm-latexdiff/overview). All credits go to **scm-latexdiff**.
 
@@ -12,11 +12,11 @@ To install to a non-standard directory tree (e.g. in your home directory) use **
 ```
 python setup.py install --prefix=/home/spam/
 ```
-Do remember to add **/home/spam/lib/python2.x/site-packages/** to your 
+Do remember to add **/home/spam/lib/python2.x/site-packages/** to your
 **PYTHONPATH** environment variable.
 
 ------------
-  
+
 ## USAGE:
 ```
 ### find help
@@ -43,7 +43,7 @@ run-latexdiff -o f126:ms/old.tex -n jafo12:ms/new.tex -d ms/diff.tex
 
 ## License
 
-Copyright © 2012, Paul Hiemstra <paul@numbertheory.nl>, 
+Copyright © 2012, Paul Hiemstra <paul@numbertheory.nl>,
 Ronald van Haren <ronald@archlinux.org>.
 This file is part of scm-latexdiff.
 
@@ -59,4 +59,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-

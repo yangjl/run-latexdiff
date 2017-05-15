@@ -111,6 +111,7 @@ def cloneRepository(fileloc, dest_dir, git):
       texfile = cloneGitRepository(fileloc, dest_dir)
     else:
       texfile = cloneHgRepository(fileloc, dest_dir)
+        \
   else:
     print "Using local revision of %s: OK" % fileloc
     texfile = parseFileloc(fileloc)[1]
