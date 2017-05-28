@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 
-# Copyright © 2012, Paul Hiemstra <paul@numbertheory.nl>, 
+# Copyright ï¿½ 2012, Paul Hiemstra <paul@numbertheory.nl>, 
 # Ronald van Haren <ronald@archlinux.org>.
 # This file is part of scm-latexdiff.
 
@@ -111,7 +111,7 @@ def cloneRepository(fileloc, dest_dir, git):
       texfile = cloneGitRepository(fileloc, dest_dir)
     else:
       texfile = cloneHgRepository(fileloc, dest_dir)
-        \
+        
   else:
     print "Using local revision of %s: OK" % fileloc
     texfile = parseFileloc(fileloc)[1]
