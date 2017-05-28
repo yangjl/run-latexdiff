@@ -57,7 +57,7 @@ def get_parser():
 
     parser.add_argument('-d', '--diff', help='output diff.tex file', type=str, default="diff.tex")
     
-    parser.add_argument('-r', '--remove', help='remove diff.tex', type=bool, default=True)
+    parser.add_argument('-r', '--remove', help='remove diff.tex', type=str, default="yes")
 
     return parser
     #parser = get_parser()

@@ -27,8 +27,9 @@ def main():
     removeTrailingNewlines(args['diff'])
     aux, log = getfilenm(diff_tex= args['diff'])
     compileDiffPdf(log_file = log, diff_tex= args['diff'], diff_aux = aux)
-    if args['remove'] == True:
+    if args['remove'] == "yes":
         cleanAllNonePDF()
+        #print("0")
   else:
     print(parser.print_help())
     sys.exit(1)
