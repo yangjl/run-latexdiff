@@ -8,7 +8,7 @@ setup(
     author="Jinliang Yang <jolyang@ucdavis.edu>",
 	author_email="Jinliang Yang <jolyang@ucdavis.edu>",
 	#url="",
-    license="GPL v3",
+    license="GPLv3",
     packages=["run_latexdiff"], 
     scripts=["bin/run-latexdiff"],
     long_description=open('README.md').read(),
