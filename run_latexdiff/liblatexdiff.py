@@ -154,7 +154,7 @@ def extractMultiFile(mainfile):
 def checkMultiFiles(sub_files_input, sub_files_include):
   '''return True if LATEX document is spread over multiple files, False otherwise'''
   if len(sub_files_input)>0 or len(sub_files_include)>0:
-	return True
+    return True
 	
 def returnMultiFiles(old_tex, new_tex):
   '''check if either old_tex or new_tex is composed from multiple files'''
@@ -172,8 +172,8 @@ def checkLatexdiff():
   output,errors = proc.communicate()
   noFlatten = re.findall("flatten", errors)
   if len(noFlatten)>0:
-	print("ABORTING... \n \n Your version of latexdiff does not support documents splitted over multiple files. \n Please update your version of latexdiff. \n")
-	sys.exit(0)
+    print("ABORTING... \n \n Your version of latexdiff does not support documents splitted over multiple files. \n Please update your version of latexdiff. \n")
+    sys.exit(0)
 
 def replacePattern(file, pattern, subst):
   '''Replace (in-place) a pattern in a file'''
