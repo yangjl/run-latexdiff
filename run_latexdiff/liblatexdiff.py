@@ -23,22 +23,22 @@ from shutil import move
 
 
 def runCommand(cmd, stdout = None, stderr = None, cwd = None, ignoredRetCodes = []):
-    ''' Runs the command and returns an appropriate string '''
-    assert isinstance(ignoredRetCodes, list), "ignoredRetCodes should be a list"
-    try:
-      retcode = subprocess.call(cmd, stdout = stdout, stderr = stderr, cwd = cwd)
-      if retcode == 0 or retcode in ignoredRetCodes:
-          message = "OK"
-      else:
-          message = "failed (retcode: %s)" % retcode
-    except OSError, e:
-        message = "failed, %s" % e
-    return(message)
+  ''' Runs the command and returns an appropriate string '''
+  assert isinstance(ignoredRetCodes, list), "ignoredRetCodes should be a list"
+  try:
+    retcode = subprocess.call(cmd, stdout = stdout, stderr = stderr, cwd = cwd)
+    if retcode == 0 or retcode in ignoredRetCodes:
+      message = "OK"
+    else:
+      message = "failed (retcode: %s)" % retcode
+  except OSError as e:
+    message = "failed, %s" % e
+  return(message)
 
 def latexdiff(old_tex, new_tex, diff_tex = None):
   ''' Run latexdiff for the above input '''
   if returnMultiFiles(old_tex, new_tex)==True:
-	checkLatexdiff()
+    checkLatexdiff()
 	print "Running latexdiff: %s" % runCommand(("latexdiff","--flatten", old_tex, new_tex), stdout = diff_tex)
   else:
 	print "Running latexdiff: %s" % runCommand(("latexdiff", old_tex, new_tex), stdout = diff_tex)
