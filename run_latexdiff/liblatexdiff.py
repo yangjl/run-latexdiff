@@ -39,37 +39,37 @@ def latexdiff(old_tex, new_tex, diff_tex = None):
   ''' Run latexdiff for the above input '''
   if returnMultiFiles(old_tex, new_tex)==True:
     checkLatexdiff()
-	print "Running latexdiff: %s" % runCommand(("latexdiff","--flatten", old_tex, new_tex), stdout = diff_tex)
+    print("Running latexdiff: %s" % runCommand(("latexdiff","--flatten", old_tex, new_tex), stdout = diff_tex))
   else:
-	print "Running latexdiff: %s" % runCommand(("latexdiff", old_tex, new_tex), stdout = diff_tex)
-  print "diff stored in %s" % diff_tex.name
+    print("Running latexdiff: %s" % runCommand(("latexdiff", old_tex, new_tex), stdout = diff_tex))
+  print("diff stored in %s" % diff_tex.name)
 
 def pdflatex(tex_file, log_file = None):
   ''' Run pdflatex on the resulting tex file '''
-  print "Running pdflatex: %s" % runCommand(("pdflatex", "-interaction=nonstopmode", tex_file),
-                                            stdout = log_file, ignoredRetCodes = [1])
+  print("Running pdflatex: %s" % runCommand(("pdflatex", "-interaction=nonstopmode", tex_file),
+                                            stdout = log_file, ignoredRetCodes = [1]))
 
 
 def gitOrHg():
   ''' Determine whether we are in a git or mercurial repository'''
   if os.path.exists(".hg"):
-    print "Detected Mercurial repository..."
+    print("Detected Mercurial repository...")
     git = False
   elif os.path.exists(".git"):
-    print "Detected Git repository..."
+    print("Detected Git repository...")
     git = True
   else:
-    print "Error, no Git or Mercurial repository present."
+    print("Error, no Git or Mercurial repository present.")
     exit()    
   return git
 
 def dumpLocalFile(f, output_fileobj = None):
   ''' Do not dump from the repository, but dump a local file. '''
-  print "Dumping a local file %s: %s" % (f, runCommand(("cat", f), stdout = output_fileobj))
+  print("Dumping a local file %s: %s" % (f, runCommand(("cat", f), stdout = output_fileobj)))
 
 def bibtex(aux_file, log_file = None):
   ''' Run bibtex on the diff.aux file to get working citations '''
-  print "Running bibtex: %s" % runCommand(("bibtex", aux_file), stdout = log_file)
+  print("Running bibtex: %s" % runCommand(("bibtex", aux_file), stdout = log_file))
 
 def compileDiffPdf(log_file = None, diff_tex="diff.tex", diff_aux ="diff.aux"):
   ''' Compile diff.pdf based on diff.tex '''
@@ -113,16 +113,16 @@ def cloneRepository(fileloc, dest_dir, git):
       texfile = cloneHgRepository(fileloc, dest_dir)
         
   else:
-    print "Using local revision of %s: OK" % fileloc
+    print("Using local revision of %s: OK" % fileloc)
     texfile = parseFileloc(fileloc)[1]
   return texfile
 
 def cloneGitRepository(git_fileloc, dest_dir):
   rev, gitfile = parseFileloc(git_fileloc)
   devnull = open(os.devnull, "w")
-  print "Cloning repository: %s" % (runCommand(("git","clone", ".", dest_dir), stdout = devnull))
-  print "Setting the repository to revision %s: %s" % (rev, runCommand(("git","checkout", rev), 
-              stdout = devnull, stderr = devnull, cwd = dest_dir))
+  print("Cloning repository: %s" % (runCommand(("git","clone", ".", dest_dir), stdout = devnull)))
+  print("Setting the repository to revision %s: %s" % (rev, runCommand(("git","checkout", rev), 
+              stdout = devnull, stderr = devnull, cwd = dest_dir)))
   devnull.close()
   return "/".join((dest_dir, gitfile))
 
@@ -160,11 +160,11 @@ def returnMultiFiles(old_tex, new_tex):
   '''check if either old_tex or new_tex is composed from multiple files'''
   sub_files_input, sub_files_include = extractMultiFile(old_tex)
   if checkMultiFiles(sub_files_input, sub_files_include)==True:
-	return True
+    return True
   else:
-	sub_files_input, sub_files_include = extractMultiFile(new_tex)
-	if checkMultiFiles(sub_files_input, sub_files_include)==True:
-	  return True
+    sub_files_input, sub_files_include = extractMultiFile(new_tex)
+    if checkMultiFiles(sub_files_input, sub_files_include)==True:
+      return True
 	
 def checkLatexdiff():
   '''check if latexdiff supports the --flatten argument'''
@@ -172,7 +172,7 @@ def checkLatexdiff():
   output,errors = proc.communicate()
   noFlatten = re.findall("flatten", errors)
   if len(noFlatten)>0:
-	print "ABORTING... \n \n Your version of latexdiff does not support documents splitted over multiple files. \n Please update your version of latexdiff. \n"
+	print("ABORTING... \n \n Your version of latexdiff does not support documents splitted over multiple files. \n Please update your version of latexdiff. \n")
 	sys.exit(0)
 
 def replacePattern(file, pattern, subst):
