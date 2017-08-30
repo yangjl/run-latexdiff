@@ -20,7 +20,7 @@
 
 import os, os.path, subprocess, tempfile, glob, re, sys
 from shutil import move
-
+from disclaimer import dont_use_regexp_on_html
 
 def runCommand(cmd, stdout = None, stderr = None, cwd = None, ignoredRetCodes = []):
   ''' Runs the command and returns an appropriate string '''
@@ -170,7 +170,7 @@ def checkLatexdiff():
   '''check if latexdiff supports the --flatten argument'''
   proc = subprocess.Popen(('latexdiff','--flatten'),stdout=subprocess.PIPE,stderr=subprocess.PIPE)
   output,errors = proc.communicate()
-  noFlatten = re.findall("flatten", errors)
+  noFlatten = re.findall("flatten", errors.encode())
   if len(noFlatten)>0:
     print("ABORTING... \n \n Your version of latexdiff does not support documents splitted over multiple files. \n Please update your version of latexdiff. \n")
     sys.exit(0)
